@@ -1,0 +1,14 @@
+.meal-picker { margin: 16px 0; }
+.meal-picker select { display: inline-block; width: auto; margin-left: 8px; }
+.ingredient-add { display: flex; gap: 8px; margin: 16px 0; }
+.ingredient-add select { margin: 0; }
+.ingredient-list { display: grid; gap: 8px; }
+.ingredient-row { display: grid; grid-template-columns: 1fr 72px 80px 28px; align-items: center; gap: 7px; background: white; border-radius: 10px; padding: 8px; }
+.ingredient-row input, .ingredient-row select { margin: 0; padding: 8px; }
+.ingredient-row span { font-size: 13px; font-weight: 700; }
+.meal-total { background: #e1f1e8; border-radius: 10px; margin-top: 14px; padding: 12px; }
+.meal-total b, .meal-total span { display: block; }
+.meal-total span { color: #486257; font-size: 13px; margin-top: 3px; }
+.template-actions { display: flex; align-items: end; gap: 8px; }
+.template-actions label { width: 82px; }
+.template-actions input { margin: 3px 0 0; padding: 7px; }

@@ -47,6 +47,8 @@ export interface MealTemplate {
   name:string;
   description?:string;
   ingredients:TemplateIngredient[];
+  /** Number of prepared portions yielded by the complete ingredient batch. */
+  servings?:number;
   createdAt:string;
   updatedAt:string
 }
