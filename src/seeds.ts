@@ -5,7 +5,8 @@ from './types';
 const now='2026-01-01T00:00:00.000Z';
 const f=(id:string,name:string,category:string,servingSize:number,servingUnit:Food['servingUnit'],calories:number,protein:number,carbs:number,fat:number,preparationState?:string):Food=>({
   id,name,category,servingSize,servingUnit,servingGrams:servingUnit==='g'?servingSize:undefined,calories,protein,carbs,fat,preparationState,sourceType:'reference',createdAt:now,updatedAt:now
-});
+}
+);
 export const foods:Food[]=[
 f('chicken-raw','Chicken breast','Meat & poultry',100,'g',120,22.5,0,2.6,'raw'),f('chicken-cooked','Chicken breast','Meat & poultry',100,'g',165,31,0,3.6,'cooked'),f('beef-90','Ground beef, 90% lean','Meat & poultry',100,'g',176,20,0,10,'cooked'),f('turkey','Ground turkey, 93% lean','Meat & poultry',100,'g',176,22,0,9,'cooked'),f('tuna','Tuna in water, drained','Fish & seafood',85,'g',100,22,0,0.8,'drained'),f('salmon','Salmon','Fish & seafood',100,'g',208,20,0,13,'cooked'),f('egg','Egg, large','Dairy & eggs',1,'serving',72,6.3,0.4,4.8),f('egg-whites','Egg whites','Dairy & eggs',100,'g',52,11,0.7,0.2),f('greek-yogurt','Greek yogurt, nonfat','Dairy & eggs',170,'g',100,17,6,0),f('cottage','Cottage cheese, low-fat','Dairy & eggs',113,'g',90,12,5,2.5),f('whey','Whey protein powder','Protein powders & bars',1,'scoop',120,24,3,1.5),f('protein-bar','Protein bar, reference','Protein powders & bars',1,'bar',200,20,22,7),
 f('rice-white-cooked','White rice','Grains & pasta',100,'g',130,2.7,28,0.3,'cooked'),f('rice-white-dry','White rice','Grains & pasta',100,'g',365,7,80,0.7,'dry'),f('rice-brown','Brown rice','Grains & pasta',100,'g',123,2.7,25.6,1,'cooked'),f('pasta-cooked','Pasta','Grains & pasta',100,'g',158,5.8,30.9,0.9,'cooked'),f('pasta-dry','Pasta','Grains & pasta',100,'g',371,13,75,1.5,'dry'),f('oats','Oats','Grains & pasta',40,'g',150,5,27,3),f('bread','Whole wheat bread','Grains & pasta',1,'serving',80,4,14,1),f('tortilla','Flour tortilla','Grains & pasta',1,'serving',140,4,24,4),
@@ -14,59 +15,87 @@ f('olive-oil','Olive oil','Sauces & oils',1,'serving',119,0,0,13.5),f('avocado',
 ];
 const t=(id:string,name:string,ingredients:MealTemplate['ingredients']):MealTemplate=>({
   id,name,ingredients,createdAt:now,updatedAt:now
-});
+}
+);
 export const templates=[t('tmpl-chicken-salad','Chicken breast salad',[{
   foodId:'chicken-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'greens',quantity:85,quantityUnit:'g'
-},{
+}
+,{
   foodId:'tomato',quantity:100,quantityUnit:'g'
-},{
+}
+,{
   foodId:'dressing',quantity:1,quantityUnit:'serving'
-}]),t('tmpl-tuna-salad','Tuna and egg salad',[{
+}
+]),t('tmpl-tuna-salad','Tuna and egg salad',[{
   foodId:'tuna',quantity:1,quantityUnit:'serving'
-},{
+}
+,{
   foodId:'egg',quantity:2,quantityUnit:'serving'
-},{
+}
+,{
   foodId:'greens',quantity:85,quantityUnit:'g'
-}]),t('tmpl-chicken-rice','Chicken, rice and broccoli',[{
+}
+]),t('tmpl-chicken-rice','Chicken, rice and broccoli',[{
   foodId:'chicken-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'rice-white-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'broccoli',quantity:100,quantityUnit:'g'
-}]),t('tmpl-stir','Chicken stir-fry with rice',[{
+}
+]),t('tmpl-stir','Chicken stir-fry with rice',[{
   foodId:'chicken-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'rice-white-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'pepper',quantity:100,quantityUnit:'g'
-}]),t('tmpl-turkey-pasta','Ground turkey pasta',[{
+}
+]),t('tmpl-turkey-pasta','Ground turkey pasta',[{
   foodId:'turkey',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'pasta-cooked',quantity:180,quantityUnit:'g'
-},{
+}
+,{
   foodId:'marinara',quantity:1,quantityUnit:'serving'
-}]),t('tmpl-salmon','Salmon rice bowl',[{
+}
+]),t('tmpl-salmon','Salmon rice bowl',[{
   foodId:'salmon',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'rice-white-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'cucumber',quantity:100,quantityUnit:'g'
-}]),t('tmpl-beef','Lean beef taco rice bowl',[{
+}
+]),t('tmpl-beef','Lean beef taco rice bowl',[{
   foodId:'beef-90',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'rice-white-cooked',quantity:150,quantityUnit:'g'
-},{
+}
+,{
   foodId:'salsa',quantity:1,quantityUnit:'serving'
-}]),t('tmpl-breakfast','Greek yogurt, oats and eggs breakfast',[{
+}
+]),t('tmpl-breakfast','Greek yogurt, oats and eggs breakfast',[{
   foodId:'greek-yogurt',quantity:170,quantityUnit:'g'
-},{
+}
+,{
   foodId:'oats',quantity:40,quantityUnit:'g'
-},{
+}
+,{
   foodId:'egg',quantity:2,quantityUnit:'serving'
-}]),t('tmpl-shake','Whey protein shake and banana',[{
+}
+]),t('tmpl-shake','Whey protein shake and banana',[{
   foodId:'whey',quantity:1,quantityUnit:'scoop'
-},{
+}
+,{
   foodId:'banana',quantity:1,quantityUnit:'serving'
-}])];
+}
+])];

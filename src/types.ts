@@ -1,75 +1,82 @@
-export type MealType = 'Breakfast' | 'Lunch' | 'Dinner' | 'Snacks';
-export type Unit = 'g' | 'oz' | 'serving' | 'packet' | 'scoop' | 'bar' | 'cup';
+export type MealType = "Breakfast" | "Lunch" | "Dinner" | "Snacks";
+export type Unit = "g" | "oz" | "serving" | "packet" | "scoop" | "bar" | "cup";
+
 export interface Nutrition {
-  calories:number;
-  protein:number;
-  carbs:number;
-  fat:number;
-  fiber?:number;
-  sugar?:number;
-  sodium?:number
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber?: number;
+  sugar?: number;
+  sodium?: number;
 }
+
 export interface Food extends Nutrition {
-  id:string;
-  name:string;
-  brand?:string;
-  category:string;
-  servingSize:number;
-  servingUnit:Unit;
-  servingGrams?:number;
-  preparationState?:string;
-  sourceType:'reference'|'label';
-  createdAt:string;
-  updatedAt:string;
-  archivedAt?:string
+  id: string;
+  name: string;
+  brand?: string;
+  category: string;
+  servingSize: number;
+  servingUnit: Unit;
+  servingGrams?: number;
+  preparationState?: string;
+  sourceType: "reference" | "label";
+  createdAt: string;
+  updatedAt: string;
+  archivedAt?: string;
 }
+
 export interface MealLogEntry {
-  id:string;
-  date:string;
-  mealType:MealType;
-  foodId:string;
-  foodNameSnapshot:string;
-  brandSnapshot?:string;
-  quantity:number;
-  quantityUnit:Unit;
-  gramsConsumed?:number;
-  nutritionSnapshot:Nutrition;
-  createdAt:string;
-  updatedAt:string
+  id: string;
+  date: string;
+  mealType: MealType;
+  foodId: string;
+  foodNameSnapshot: string;
+  brandSnapshot?: string;
+  quantity: number;
+  quantityUnit: Unit;
+  gramsConsumed?: number;
+  nutritionSnapshot: Nutrition;
+  createdAt: string;
+  updatedAt: string;
 }
+
 export interface TemplateIngredient {
-  foodId:string;
-  quantity:number;
-  quantityUnit:Unit
+  foodId: string;
+  quantity: number;
+  quantityUnit: Unit;
 }
+
 export interface MealTemplate {
-  id:string;
-  name:string;
-  description?:string;
-  ingredients:TemplateIngredient[];
+  id: string;
+  name: string;
+  description?: string;
+  ingredients: TemplateIngredient[];
   /** Number of prepared portions yielded by the complete ingredient batch. */
-  servings?:number;
-  createdAt:string;
-  updatedAt:string
+  servings?: number;
+  createdAt: string;
+  updatedAt: string;
 }
+
 export interface Goals extends Nutrition {
-  effectiveDate:string
+  effectiveDate: string;
 }
+
 export interface Measurement {
-  id:string;
-  date:string;
-  weight:number;
-  waistCircumference?:number;
-  notes?:string
+  id: string;
+  date: string;
+  weight: number;
+  waistCircumference?: number;
+  notes?: string;
 }
+
 export interface Settings {
-  id:'settings';
-  preferredUnits:'imperial'|'metric';
-  dailyGoals:Goals;
-  displayPreferences:{
-    showFiber:boolean
-  }
+  id: "settings";
+  preferredUnits: "imperial" | "metric";
+  dailyGoals: Goals;
+  displayPreferences: { showFiber: boolean };
 }
-export const meals:MealType[]=['Breakfast','Lunch','Dinner','Snacks'];
-export const uid=()=>crypto.randomUUID();
-export const today=()=>new Date().toLocaleDateString('en-CA');
+
+export const meals: MealType[] = ["Breakfast", "Lunch", "Dinner", "Snacks"];
+export const uid = () => crypto.randomUUID();
+export const today = () => new Date().toLocaleDateString("en-CA");
