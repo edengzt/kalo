@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NutriTrack · UI Reference</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="desktop-rail">
+      <div class="brand"><span class="brand-mark">✳</span><span>nutri<span class="brand-light">track</span></span></div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-screen="home"><span>⌂</span>Home</button>
+        <button class="nav-item" data-screen="recipes"><span>▤</span>Recipes</button>
+        <button class="nav-item" data-screen="add"><span>＋</span>Add food</button>
+        <button class="nav-item" data-screen="progress"><span>⌁</span>Progress</button>
+        <button class="nav-item" data-screen="settings"><span>⚙</span>Settings</button>
+      </nav>
+      <div class="rail-note"><span class="dot"></span> Small steps, steady progress.</div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">✳</span> nutri<span class="brand-light">track</span></div>
+        <div class="topbar-date">WEDNESDAY, NOVEMBER 11</div>
+        <button class="avatar" aria-label="Profile">E</button>
+      </header>
+
+      <section class="screen active" id="screen-home">
+        <div class="page-heading">
+          <div><p class="eyebrow">YOUR DAILY OVERVIEW</p><h1>Good morning, Ethan</h1><p class="muted">A little consistency goes a long way.</p></div>
+          <button class="button button-quiet" id="today-button">Today ↗</button>
+        </div>
+
+        <div class="home-grid">
+          <article class="card calorie-card">
+            <div class="card-topline"><span class="eyebrow light-eyebrow">DAILY CALORIES</span><span class="goal-pill">On track</span></div>
+            <div class="calorie-number"><strong id="calorie-total">1,420</strong><span>/ 1,900 <small>kcal</small></span></div>
+            <div class="progress-track"><div class="progress-fill" id="calorie-fill" style="width:75%"></div></div>
+            <div class="calorie-foot"><span><strong id="calorie-left">480</strong> kcal remaining</span><span>75% of goal</span></div>
+            <div class="macro-grid">
+              <div><strong>92<span>g</span></strong><small>Protein</small><div class="mini-track"><i style="width:77%"></i></div></div>
+              <div><strong>138<span>g</span></strong><small>Carbs</small><div class="mini-track"><i style="width:58%"></i></div></div>
+              <div><strong>48<span>g</span></strong><small>Fat</small><div class="mini-track"><i style="width:69%"></i></div></div>
+            </div>
+          </article>
+
+          <article class="card calendar-card">
+            <div class="section-heading"><div><p class="eyebrow">YOUR CONSISTENCY</p><h2>November 2026</h2></div><div class="month-controls"><button id="prev-month" aria-label="Previous month">‹</button><button id="next-month" aria-label="Next month">›</button></div></div>
+            <div class="calendar-weekdays"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+            <div class="calendar-days" id="calendar-days"></div>
+            <div class="calendar-legend"><span><i class="legend-dot on"></i> Within goal</span><span><i class="legend-dot over"></i> Over goal</span><span><i class="legend-dot empty"></i> No entry</span></div>
+          </article>
+        </div>
+
+        <div class="summary-strip">
+          <div><span class="summary-icon">✓</span><div><small>DAYS WITHIN GOAL</small><strong>8 <em>of 11</em></strong></div></div>
+          <div><span class="summary-icon">↗</span><div><small>MONTHLY CALORIE AVG.</small><strong>1,845 <em>kcal</em></strong></div></div>
+          <div><span class="summary-icon">♧</span><div><small>DAILY PROTEIN AVG.</small><strong>112 <em>g</em></strong></div></div>
+        </div>
+
+        <div class="section-heading meals-heading"><div><p class="eyebrow">WEDNESDAY, NOV 11</p><h2>Today's meals</h2></div><button class="text-button" data-go="add">＋ Add food</button></div>
+        <div class="meal-list">
+          <article class="meal-row"><div class="meal-symbol breakfast">☼</div><div class="meal-name"><strong>Breakfast</strong><small>Greek yogurt, berries, granola</small></div><div class="meal-cal"><strong>380</strong><small>kcal</small></div><button class="row-arrow" aria-label="View breakfast">›</button></article>
+          <article class="meal-row"><div class="meal-symbol lunch">◒</div><div class="meal-name"><strong>Lunch</strong><small>Chicken breast salad</small></div><div class="meal-cal"><strong>520</strong><small>kcal</small></div><button class="row-arrow" aria-label="View lunch">›</button></article>
+          <article class="meal-row"><div class="meal-symbol dinner">◔</div><div class="meal-name"><strong>Dinner</strong><small>Ground beef pasta</small></div><div class="meal-cal"><strong>520</strong><small>kcal</small></div><button class="row-arrow" aria-label="View dinner">›</button></article>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-recipes">
+        <div class="page-heading"><div><p class="eyebrow">YOUR PERSONAL COOKBOOK</p><h1>My recipes</h1><p class="muted">Meals you love, ready to log in seconds.</p></div><button class="button button-primary">＋ Create recipe</button></div>
+        <div class="toolbar"><label class="search"><span>⌕</span><input id="recipe-search" placeholder="Search your recipes"></label><div class="chips"><button class="chip selected">All</button><button class="chip">Breakfast</button><button class="chip">Lunch</button><button class="chip">Dinner</button><button class="chip">Snacks</button></div></div>
+        <div class="recipe-grid">
+          <article class="recipe-card"><div class="recipe-photo photo-pasta"><span>DINNER</span></div><div class="recipe-info"><h3>Ground beef pasta</h3><p>Simple, filling, high protein</p><div class="recipe-meta"><strong>565 <small>kcal / serving</small></strong><span>42g protein</span></div></div></article>
+          <article class="recipe-card"><div class="recipe-photo photo-salad"><span>LUNCH</span></div><div class="recipe-info"><h3>Chicken salad bowl</h3><p>Fresh and easy to prep</p><div class="recipe-meta"><strong>420 <small>kcal / serving</small></strong><span>46g protein</span></div></div></article>
+          <article class="recipe-card"><div class="recipe-photo photo-rice"><span>DINNER</span></div><div class="recipe-info"><h3>Ground beef rice bowl</h3><p>A reliable weeknight meal</p><div class="recipe-meta"><strong>610 <small>kcal / serving</small></strong><span>44g protein</span></div></div></article>
+          <article class="recipe-card"><div class="recipe-photo photo-yogurt"><span>BREAKFAST</span></div><div class="recipe-info"><h3>Greek yogurt bowl</h3><p>Quick breakfast with berries</p><div class="recipe-meta"><strong>310 <small>kcal / serving</small></strong><span>25g protein</span></div></div></article>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-add">
+        <div class="page-heading"><div><p class="eyebrow">FOOD DATABASE</p><h1>Add food</h1><p class="muted">Find an ingredient or quickly add a recent favorite.</p></div></div>
+        <label class="search search-large"><span>⌕</span><input placeholder="Search foods, brands, or ingredients"></label>
+        <div class="chips"><button class="chip selected">All</button><button class="chip">Protein</button><button class="chip">Vegetables</button><button class="chip">Grains</button><button class="chip">Favorites</button></div>
+        <p class="eyebrow list-label">RECENTLY ADDED</p>
+        <div class="food-list">
+          <div class="food-row"><div class="food-thumb chicken">♧</div><div class="food-name"><strong>Chicken breast</strong><small>Cooked · per 100 g</small></div><div class="food-nutrition"><strong>165 kcal</strong><small>31g protein</small></div><button class="add-circle">＋</button></div>
+          <div class="food-row"><div class="food-thumb beef">◉</div><div class="food-name"><strong>93/7 ground beef</strong><small>Cooked · per 4 oz</small></div><div class="food-nutrition"><strong>170 kcal</strong><small>23g protein</small></div><button class="add-circle">＋</button></div>
+          <div class="food-row"><div class="food-thumb tuna">◒</div><div class="food-name"><strong>Tuna packet</strong><small>1 packet · 74 g</small></div><div class="food-nutrition"><strong>90 kcal</strong><small>15g protein</small></div><button class="add-circle">＋</button></div>
+          <div class="food-row"><div class="food-thumb rice">◇</div><div class="food-name"><strong>White rice</strong><small>Cooked · per 1 cup</small></div><div class="food-nutrition"><strong>205 kcal</strong><small>4g protein</small></div><button class="add-circle">＋</button></div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-progress">
+        <div class="page-heading"><div><p class="eyebrow">ZOOM OUT</p><h1>Your progress</h1><p class="muted">A bigger-picture view of your habits.</p></div><div class="chips period-chips"><button class="chip">1W</button><button class="chip selected">1M</button><button class="chip">3M</button><button class="chip">1Y</button></div></div>
+        <div class="progress-grid">
+          <article class="card chart-card"><p class="eyebrow">AVERAGE DAILY CALORIES</p><div class="chart-number">1,845 <small>kcal</small></div><p class="trend positive">↗ 3% lower than last month</p><div class="bar-chart"><i style="height:66%"></i><i style="height:75%"></i><i style="height:70%"></i><i style="height:82%"></i><i style="height:61%"></i><i style="height:72%"></i><i style="height:78%"></i><i style="height:68%"></i><i style="height:88%"></i><i style="height:76%"></i><i style="height:71%"></i><i style="height:80%"></i></div><div class="chart-axis"><span>Nov 1</span><span>Nov 6</span><span>Nov 11</span></div></article>
+          <article class="card stat-card"><p class="eyebrow">AVERAGE PROTEIN</p><div class="chart-number">112 <small>g / day</small></div><p class="trend positive">↗ 8g above last month</p><div class="protein-ring"><div><strong>112g</strong><small>of 120g</small></div></div></article>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-settings">
+        <div class="page-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h1>Settings</h1><p class="muted">Your goals and preferences.</p></div></div>
+        <div class="settings-group"><p class="eyebrow">NUTRITION GOALS</p><button class="setting-row"><span class="setting-icon">◉</span><span><strong>Daily calorie goal</strong><small>1,900 kcal</small></span><b>›</b></button><button class="setting-row"><span class="setting-icon">♧</span><span><strong>Macro goals</strong><small>Protein, carbs, and fat</small></span><b>›</b></button></div>
+        <div class="settings-group"><p class="eyebrow">PREFERENCES</p><button class="setting-row"><span class="setting-icon">⌁</span><span><strong>Units</strong><small>Imperial (lb, oz)</small></span><b>›</b></button><button class="setting-row"><span class="setting-icon">◐</span><span><strong>Appearance</strong><small>Light · Sage & cream</small></span><b>›</b></button><button class="setting-row"><span class="setting-icon">♧</span><span><strong>Reminders</strong><small>Meal logging notifications</small></span><b>›</b></button></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Mobile navigation">
+        <button class="nav-item active" data-screen="home"><span>⌂</span>Home</button>
+        <button class="nav-item" data-screen="recipes"><span>▤</span>Recipes</button>
+        <button class="nav-add" data-screen="add" aria-label="Add food">＋</button>
+        <button class="nav-item" data-screen="progress"><span>⌁</span>Progress</button>
+        <button class="nav-item" data-screen="settings"><span>⚙</span>Settings</button>
+      </nav>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

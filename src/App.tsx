@@ -14,7 +14,6 @@ import type {
   Nutrition,
   Settings,
 } from "./types";
-import "./features.css";
 
 type Page = "Today" | "Foods" | "Meals" | "History" | "Settings";
 
