@@ -41,3 +41,27 @@ main { max-width:1180px; margin:0 auto; padding:0 54px 96px; }
 nav { background:var(--paper); border-color:var(--line); } nav .active { color:var(--green); border-color:var(--green); }
 @media (min-width:901px) { main { margin-left:230px; min-height:100vh; } nav { position:fixed; top:0; left:0; bottom:0; width:230px; height:100vh; display:flex; flex-direction:column; justify-content:flex-start; padding:112px 20px 20px; border-right:1px solid var(--line); border-top:0; background:#f0eddf; } nav::before { content:"✳  kalo"; position:absolute; top:33px; left:32px; color:var(--green); font:800 22px Manrope, sans-serif; } nav button { flex:0 0 auto; max-width:none; width:100%; text-align:left; padding:13px 14px; border-radius:12px; } nav .active { background:#e1e6d8; border:0; } .top { min-height:126px; } }
 @media (max-width:560px) { main { padding:0 16px 95px; } .top { min-height:94px; padding-top:24px; } .top h1 { font-size:25px; } .metrics { gap:8px; } .metric { padding:11px; } }
+
+/* Interaction and mobile-picker polish */
+@keyframes page-enter { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes sheet-enter { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+.top + * { animation:page-enter 260ms cubic-bezier(.2,.8,.2,1); }
+button, .entry, .food, .template, .metric { transition:transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, border-color 160ms ease; }
+button:active { transform:scale(.97); }
+.entry:hover, .food:hover, .template:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgb(62 68 48 / 8%); }
+.modal { animation:page-enter 180ms ease-out; }
+.food-picker-sheet { width:min(760px, 100%); padding:0; overflow:hidden; }
+.food-picker-sheet header { padding:22px 22px 15px; border-bottom:1px solid var(--line); }
+.food-picker-sheet header h2 { margin:2px 0 0; color:var(--ink); }
+.food-picker-sheet header > button { width:34px; height:34px; border-radius:50%; background:var(--sage); color:var(--green); font-size:26px; line-height:1; }
+.food-search { display:flex; align-items:center; gap:9px; margin:16px 18px 8px; padding:0 13px; background:#efecdf; border-radius:12px; color:var(--muted); }
+.food-search span { font-size:20px; }.food-search input { margin:0; border:0; background:transparent; }
+.picker-count { margin:8px 22px 10px; color:var(--muted); font-size:12px; }
+.food-gallery { max-height:min(58vh, 530px); overflow-y:auto; padding:0 12px 16px; overscroll-behavior:contain; }
+.food-gallery-item { display:flex; align-items:center; width:100%; gap:11px; padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; }
+.food-gallery-item:hover { background:#f0eddf; }.food-glyph { display:grid; place-items:center; width:40px; height:40px; flex:0 0 auto; border-radius:13px; background:#e4ebd9; color:var(--green); font-size:19px; }
+.food-gallery-copy { flex:1; min-width:0; display:grid; gap:3px; }.food-gallery-copy b { font-size:14px; }.food-gallery-copy small,.food-gallery-macros small { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--muted); font-size:11px; }
+.food-gallery-macros { display:grid; justify-items:end; gap:3px; }.food-gallery-macros b { font:700 13px Manrope,sans-serif; }.picker-arrow { color:#99998e; font-size:24px; }
+.log-confirm { padding:18px 22px 24px; }.back-link { color:var(--green); font-weight:700; margin-bottom:16px; }.selected-food { display:flex; gap:12px; align-items:center; padding:13px; background:#eef0e5; border-radius:14px; }.selected-food b,.selected-food small { display:block; }.selected-food small { margin-top:3px; }.log-preview { display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:14px; background:#e8e9dc; border-radius:12px; color:var(--muted); }.log-preview b { color:var(--green); font:700 18px Manrope,sans-serif; }
+@media (max-width:560px) { .food-picker-modal { align-items:stretch; }.food-picker-sheet { min-height:100dvh; border-radius:0; }.food-gallery { max-height:calc(100dvh - 180px); }.food-picker-sheet header { padding-top:max(22px, env(safe-area-inset-top)); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
